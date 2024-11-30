@@ -30,7 +30,7 @@ const App = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`https://api.bridgedataoutput.com/api/v2/dataset_id/listings?access_token=ed352b061c022816d27b182b9b7cef29&ListPrice.gt=500000`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=7958c32d98f9404daf20da935220357a&query=pasta&maxFat=25&number=2`);
       const data = await response.json();
       setResults(data);
     } catch (error) {
