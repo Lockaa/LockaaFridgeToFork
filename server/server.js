@@ -1,14 +1,14 @@
 const express = require('express');
-const fetch = require('node-fetch');
+const fetch = import('node-fetch');
 const { MongoClient } = require('mongodb');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3002;
 
-const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(process.env.MONGO_URI);
 
 let db;
 client.connect((err) => {
