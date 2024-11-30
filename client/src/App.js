@@ -30,7 +30,7 @@ const App = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`/api/search?zip=${zip}&minPrice=${minPrice}&maxPrice=${maxPrice}&minBeds=${minBeds}&maxBeds=${maxBeds}&minBaths=${minBaths}&maxBaths=${maxBaths}`);
+      const response = await fetch(`https://api.bridgedataoutput.com/api/v2/dataset_id/listings?access_token=ed352b061c022816d27b182b9b7cef29&ListPrice.gt=500000`);
       const data = await response.json();
       setResults(data);
     } catch (error) {

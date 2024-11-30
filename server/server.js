@@ -39,8 +39,8 @@ app.get('/api/search', async (req, res) => {
     };
     await db.collection('searchQueries').insertOne(newSearchQuery);
 
-    // Fetch data from Zillow API
-    const response = await fetch(`https://api.zillow.com/v1/GetSearchResults.htm?zws-id=${process.env.ZILLOW_API_KEY}&zip=${zip}&price=$${minPrice}-${maxPrice}&bedrooms=${minBeds}-${maxBeds}&bathrooms=${minBaths}-${maxBaths}`);
+    // Fetch data from Bridge Web API
+    const response = await fetch(`https://api.bridgedataoutput.com/api/v2/dataset_id/listings?access_token=${SERVER_TOKEN}&ListPrice.gt=500000`);
     const data = await response.json();
     res.json(data);
   } catch (error) {
