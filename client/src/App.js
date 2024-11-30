@@ -4,13 +4,11 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 
 const App = () => {
-  const [zip, setZip] = useState('');
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
-  const [minBeds, setMinBeds] = useState('');
-  const [maxBeds, setMaxBeds] = useState('');
-  const [minBaths, setMinBaths] = useState('');
-  const [maxBaths, setMaxBaths] = useState('');
+  const [Ingredient1, setIngredient1] = useState('');
+  const [Ingredient2, setIngredient2] = useState('');
+  const [Ingredient3, setIngredient3] = useState('');
+  const [Ingredient4, setIngredient4] = useState('');
+  const [Ingredient5, setIngredient5] = useState('');
   const [results, setResults] = useState(null);
   const [queries, setQueries] = useState([]);
   
@@ -40,16 +38,14 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Zillow Search</h1>
+      <h1 className="title">Recipe Maker</h1>
       <div className="form-group">
-        <input className="form-control" type="text" placeholder="Zip Code" value={zip} onChange={(e) => setZip(e.target.value)} />
-        <input className="form-control" type="number" placeholder="Min Price" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} />
-        <input className="form-control" type="number" placeholder="Max Price" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
-        <input className="form-control" type="number" placeholder="Min Beds" value={minBeds} onChange={(e) => setMinBeds(e.target.value)} />
-        <input className="form-control" type="number" placeholder="Max Beds" value={maxBeds} onChange={(e) => setMaxBeds(e.target.value)} />
-        <input className="form-control" type="number" placeholder="Min Baths" value={minBaths} onChange={(e) => setMinBaths(e.target.value)} />
-        <input className="form-control" type="number" placeholder="Max Baths" value={maxBaths} onChange={(e) => setMaxBaths(e.target.value)} />
-        <button className="btn" onClick={handleSearch}>Search</button>
+        <input className="form-control" type="text" placeholder="Ingredient 1" value={Ingredient1} onChange={(e) => setIngredient1(e.target.value)} />
+        <input className="form-control" type="text" placeholder="Ingredient 2" value={Ingredient2} onChange={(e) => setIngredient2(e.target.value)} />
+        <input className="form-control" type="text" placeholder="Ingredient 3" value={Ingredient3} onChange={(e) => setIngredient3(e.target.value)} />
+        <input className="form-control" type="text" placeholder="Ingredient 4" value={Ingredient4} onChange={(e) => setIngredient4(e.target.value)} />
+        <input className="form-control" type="text" placeholder="Ingredient 5" value={Ingredient5} onChange={(e) => setIngredient5(e.target.value)} />
+        <button className="btn" onClick={handleSearch}>Generate</button>
       </div>
 
       {results && (
