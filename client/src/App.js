@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+
+import React, {useState, useEffect} from 'react';
+
 import './App.css';
 
 const App = () => {
@@ -11,7 +13,7 @@ const App = () => {
   const [maxBaths, setMaxBaths] = useState('');
   const [results, setResults] = useState(null);
   const [queries, setQueries] = useState([]);
-
+  
   useEffect(() => {
     const fetchQueries = async () => {
       try {
