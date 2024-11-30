@@ -1,41 +1,63 @@
-// server.js
-
-const express = requi("express");
-const fetch = import("node-fetch");
-const dotenv = require("dotenv");
-
-dotenv.config();  // To load environment variables
-
+const express = require('express');
+const fetch = require('node-fetch');
+const mongoose = require('mongoose');
 const app = express();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3001;
 
-// Zillow API endpoint and API key
-const ZILLOW_API_URL = "https://api.zillow.com/webservice/GetSearchResults.htm";
-const ZILLOW_API_KEY = process.env.ZILLOW_API_KEY;  // Store API key in .env
+mongoose.connect('mongodb://localhost:27017/zillow', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+const propertySchema = new mongoose.Schema({
+    title: String,
+    address: String,
+    price: String,
+    bedrooms: String,
+    bathrooms: String,
+    description: String,
+});
+
+const Property = mongoose.model('Property', propertySchema);
 
 app.use(express.json());
 
-// Endpoint to get search results
-app.get("/api/search", async (req, res) => {
-  const { zip, priceMin, priceMax, bedrooms, baths } = req.query;
+app.get('/api/search', async (req, res) => {
+    const { zip, minPrice, maxPrice, minBeds, maxBeds, minBaths, maxBaths } = req.query;
+    const zillowAPIKey = 'YOUR_ZILLOW_API_KEY';
+    const zillowURL = `https://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${zillowAPIKey}&zip=${zip}&minprice=${minPrice}&maxprice=${maxPrice}&minbedrooms=${minBeds}&maxbedrooms=${maxBeds}&minbathrooms=${minBaths}&maxbathrooms=${maxBaths}`;
 
-  // Build the Zillow API URL with query parameters
-  const url = `${ZILLOW_API_URL}?zws-id=${ZILLOW_API_KEY}&citystatezip=${zip}&priceMin=${priceMin}&priceMax=${priceMax}&bedrooms=${bedrooms}&bathrooms=${baths}`;
+    try {
+        const response = await fetch(zillowURL);
+        const data = await response.json();
+        const properties = data.results.map(result => ({
+            title: result.title,
+            address: result.address,
+            price: result.price,
+            bedrooms: result.bedrooms,
+            bathrooms: result.bathrooms,
+            description: result.description,
+        }));
 
-  try {
-    const response = await fetch(url);
-    const data = await response.text();
-
-    if (response.ok) {
-      res.status(200).send(data);  // Send raw XML response from Zillow
-    } else {
-      res.status(400).json({ error: "Error fetching data from Zillow" });
+        // Save properties to MongoDB
+        await Property.insertMany(properties);
+        res.json(properties);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching data from Zillow', error });
     }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+});
+
+app.get('/api/properties', async (req, res) => {
+    try {
+        const properties = await Property.find();
+        res.json(properties);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching properties from MongoDB', error });
+    }
 });
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+    console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;
