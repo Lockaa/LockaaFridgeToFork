@@ -24,6 +24,7 @@ function App()
     {
       console.error('Error fetching recipes', error);
     }
+    setRecipeCard(null);
   };
 
 
