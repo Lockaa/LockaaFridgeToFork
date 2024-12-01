@@ -1,68 +1,95 @@
-body {
-  font-family: Arial, sans-serif;
-  background-image: url("fridge.jpg");
+body, html {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  height: 100%;
+  font-family: Arial, sans-serif;
 }
 
-.container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 800px;
+h1 {
+  font-family: "Garamond", "Georgia";
+  font-kerning: 10px;
+  font-size: 68px;
 }
 
-.title {
+.App {
+  position: relative;
+  height: 100%;
   text-align: center;
-  margin-bottom: 20px;
+  color: #fff;
 }
 
-.form-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000%;
+  background: url('fridge.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+  filter: brightness(50%);
 }
 
-.form-control {
-  flex: 1;
+.content {
+  position: relative;
+  padding: 20px;
+}
+
+.input {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.btn {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  margin: 10px 0;
+  width: 80%;
+  max-width: 400px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
 }
 
-.btn:hover {
-  background-color: #0056b3;
-}
-
-.results,
-.queries {
-  margin-top: 20px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  background: #eee;
-  margin: 5px 0;
-  padding: 10px;
+.button {
+  padding: 10px 20px;
+  background-color: #ff6347;
+  border: none;
   border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #ff4500;
+}
+
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recipe-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  text-align: left;
+  color: white;
+  height: 450px;
+}
+
+.recipe-card img {
+  position:absolute;
+  top: 135px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.recipe-card h3 {
+  position: absolute;
+  top: 400px;
+  margin: 0;
+}
+
+.recipe-card h2 {
+  margin: 0;
+  font-size: 24px;
 }

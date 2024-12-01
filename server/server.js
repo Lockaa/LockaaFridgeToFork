@@ -1,64 +1,38 @@
 const express = require('express');
-const fetch = import('node-fetch');
-const { MongoClient } = require('mongodb');
-const dotenv = require('dotenv');
-
-dotenv.config();
-
+const mongoose = require('mongoose');
+const fetch = require('node-fetch');
+const Recipe = require('./models/Recipe');
 const app = express();
-const PORT = process.env.PORT || 3002;
 
-const client = new MongoClient(process.env.MONGO_URI);
-
-let db;
-client.connect((err) => {
-  if (err) {
-    console.error('Failed to connect to MongoDB:', err);
-  } else {
-    db = client.db('zillowApp');
-    console.log('Connected to MongoDB');
-  }
+mongoose.connect('mongodb://localhost:5000/spoonacular', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-app.use(express.json());
-
-app.get('/api/search', async (req, res) => {
-  const { zip, minPrice, maxPrice, minBeds, maxBeds, minBaths, maxBaths } = req.query;
-
+app.get('/recipes', async (req, res) => {
   try {
-    // Save search query to MongoDB
-    const newSearchQuery = {
-      zip,
-      minPrice: parseInt(minPrice, 10),
-      maxPrice: parseInt(maxPrice, 10),
-      minBeds: parseInt(minBeds, 10),
-      maxBeds: parseInt(maxBeds, 10),
-      minBaths: parseInt(minBaths, 10),
-      maxBaths: parseInt(maxBaths, 10),
-      timestamp: new Date(),
-    };
-    await db.collection('searchQueries').insertOne(newSearchQuery);
+    const ingredients = req.query.ingredients; // Example: 'apples,flour,sugar'
+    const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=7958c32d98f9404daf20da935220357a&ingredients=${ingredients}&number=3`);
 
-    // Fetch data from Bridge Web API
-    const response = await fetch(`https://api.bridgedataoutput.com/api/v2/dataset_id/listings?access_token=${API_KEY}&ListPrice.gt=500000`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
     const data = await response.json();
-    res.json(data);
+    const recipes = data.map((recipe) => ({
+      title: recipe.title,
+      image: recipe.image,
+      instructions: recipe.instructions,
+      missedIngredients: recipe.missedIngredients.map((ingredient) => ingredient.name),
+    }));
+
+    res.json(recipes);
   } catch (error) {
-    console.error('Error fetching data:', error);
-    res.status(500).json({ message: 'Server error' });
+    console.error(error);
+    res.status(500).send('Error fetching recipes');
   }
 });
 
-app.get('/api/queries', async (req, res) => {
-  try {
-    const queries = await db.collection('searchQueries').find().sort({ timestamp: -1 }).limit(10).toArray();
-    res.json(queries);
-  } catch (error) {
-    console.error('Error fetching search queries:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(5000, () => {
+  console.log('Server running on port 5000');
 });
