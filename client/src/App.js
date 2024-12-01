@@ -46,7 +46,7 @@ function App()
     <div className="App">
       <div className="background"></div>
       <div className="content">
-        <h1>Recipe Finder</h1>
+        <h1>Fridge to Fork</h1>
         <input
           type="text"
           value={ingredients}
@@ -54,7 +54,7 @@ function App()
           placeholder="Enter ingredients (comma separated)"
           className="input"
         />
-        <button onClick={fetchIngredients} className="button">Find Recipes</button>
+        <button onClick={fetchIngredients} className="button">Plate It</button>
 
         <div className="recipes">
           {recipes.map((recipe) => (
