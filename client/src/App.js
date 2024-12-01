@@ -28,7 +28,7 @@ const App = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=7958c32d98f9404daf20da935220357a&ingredients=${Ingredient1},+${Ingredient2},+${Ingredient3},+${Ingredient4},+${Ingredient5}&number=3`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=7958c32d98f9404daf20da935220357a&ingredients=${Ingredient1},+${Ingredient2},+${Ingredient3},+${Ingredient4},+${Ingredient5}&number=2`);
       const data = await response.json();
       setResults(data);
     } catch (error) {
