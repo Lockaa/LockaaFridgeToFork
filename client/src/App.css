@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-image: "../images/Fridge.jpg";
+  background-image: url("fridge.jpg");
   margin: 0;
   padding: 0;
   display: flex;
