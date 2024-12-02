@@ -52,7 +52,7 @@
 
    Users are brought to the main screen, where they can input the ingredients and generate a recipe
 
-   ![screenshot] (../LockaaProjectThreeScreenshot.jpg)
+   ![screenshot] (screenshot.png)
 
    ## Contributing:
    Anyone is allowed to add any changes just as long as these steps are followed:
