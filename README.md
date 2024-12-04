@@ -15,7 +15,7 @@
    ## Description
 
 
-    For me final project, I created a MERN stack site that allows users to input ingredients to generate recipes, which I used the Spoonacular API for.
+    For my final project, I created a MERN stack site that allows users to input ingredients to generate recipes, which I used the Spoonacular API for.
 
     This application was made after Thanksgiving, and so everyone was thinking about leftovers and how to use them. Given how people usually don't have a fixed amount of leftovers in there fridge, I left the parameters rather open ended.
 
