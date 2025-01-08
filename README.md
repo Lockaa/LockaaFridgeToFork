@@ -54,6 +54,8 @@
 
    ![screenshot](screenshot.png)
 
+   Deploy Link: http://localhost:3002/ (or whatever number you set to the port, you need to run npm start in your terminal first though)
+
    ## Contributing:
    Anyone is allowed to add any changes just as long as these steps are followed:
     Fork the repository.
