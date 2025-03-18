@@ -1,5 +1,5 @@
 
-# LockaaRealEstate
+# LockaaFridgeToFork
 
 # Table of Contents:
 
@@ -68,6 +68,3 @@
    ## License
 
    Standard MIT License
-
-   ## Notes
-   Given I was the only one who worked on this project, there are not many pull requests, so please check the commit history instead.
