@@ -1,70 +1,116 @@
+# 🥕 FridgeToFork
 
-# LockaaFridgeToFork
+**A smart recipe suggestion app that helps users reduce food waste and cook meals with ingredients they already have.**  
+Built with React, Node.js, Express, and MongoDB.
 
-# Table of Contents:
+---
 
-  - [Description](#description)
-  - [Installation](#installation)
-  - [Technology Used](#technology-used)
-  - [Test Instructions](#test-instructions)
+## 🌟 Overview
 
-  - [Usage](#usage)
-  - [Contributions](#contributing)
-  - [License](#license)
+**FridgeToFork** is a full-stack web application designed to help users efficiently manage the ingredients in their fridge and generate personalized recipe suggestions. The goal is to reduce food waste and make home cooking more accessible by turning leftover or available ingredients into delicious meals.
 
-   ## Description
+---
+
+## 🚀 Features
+
+- 🧾 **Ingredient Tracker** – Easily add, edit, and delete items in your virtual fridge  
+- 🍽️ **Recipe Generator** – Get smart recipe suggestions based on what you already have  
+- 🧠 **AI-Ready Backend** – Designed to integrate with future AI-powered recommendations  
+- 📱 **Responsive Design** – Mobile-friendly user interface using React  
+- 🔐 **User Authentication** – Sign up, log in, and manage your ingredients securely  
+- 🔎 **Dynamic Filtering** – Quickly find recipes by cuisine, dietary restrictions, and cooking time  
+
+---
+
+## 🛠️ Tech Stack
+
+| Category         | Technologies Used                     |
+|------------------|---------------------------------------|
+| Frontend         | React.js, HTML5, CSS3                 |
+| Backend          | Node.js, Express.js                   |
+| Database         | MongoDB, Mongoose                     |
+| Authentication   | JWT, bcrypt                           |
+| Version Control  | Git, GitHub                           |
+| Deployment       | Ran Locally                           |
+
+---
+
+## 🖼️ Demo
+
+**Live Demo Coming Soon**
+
+<!-- Replace with actual screenshot path -->
+<!-- ![FridgeToFork Screenshot](./screenshots/homepage.png) -->
+
+---
+
+## 📦 Installation
+
+To run this project locally, clone the repo and follow these steps:
+
+1. **Clone the repo**  
+   `git clone https://github.com/Lockaa/LockaaFridgeToFork.git`
+
+2. **Navigate into the project directory**  
+   `cd LockaaFridgeToFork`
+
+3. **Install frontend dependencies**  
+   `cd client && npm install`
+
+4. **Install backend dependencies**  
+   `cd ../server && npm install`
+
+5. **Set up environment variables** (see `.env.example`)
+
+6. **Run the development server**  
+   `npm run dev`
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the `/server` directory and include the following:
 
 
-    For my final project, I created a MERN stack site that allows users to input ingredients to generate recipes, which I used the Spoonacular API for.
+---
 
-    This application was made after Thanksgiving, and so everyone was thinking about leftovers and how to use them. Given how people usually don't have a fixed amount of leftovers in there fridge, I left the parameters rather open ended.
+## 🧪 Future Improvements
 
-    Parameters:
-    A comma separated list of ingredients 
-    
-    Output:
-    The first three recipes, the ingredients missing for each recipe, and a button to view a more detailed recipe card
+- Integrate OpenAI API for smarter meal planning  
+- Add meal prep scheduling and grocery list export  
+- Support for voice input and camera scanning of ingredients  
+- Save and rate favorite recipes  
 
-   ## Installation
+---
 
-    GitHub Link: https://github.com/Lockaa/LockaaFridgeToFork
+## 🧠 SEO Keywords
 
-    1. Clone the repository:
+fridge recipe app, cook with ingredients I have, food waste app, smart recipe suggestion, AI meal planner, react node recipe app, MongoDB recipe database, FridgeToFork project, full-stack food app, beginner AI food project, meal generator app
 
-    2. CD into client/src
+---
 
-    3. Packages are preinstalled when running due to package.json files
+## 🤝 Contributing
 
-    4. run `npm start` in your terminal, or gitbash
+Contributions, ideas, and feedback are always welcome!
 
-   ## Technology Used
-    Spoonacular API
-    MongoDB
-    Express
-    React
-    Node.js
+1. Fork the repo  
+2. Create your feature branch (`git checkout -b feature/your-feature`)  
+3. Commit your changes (`git commit -m 'Add new feature'`)  
+4. Push to the branch (`git push origin feature/your-feature`)  
+5. Open a Pull Request
 
-   ## Test Instructions
+---
 
-   npm start in the /client/src directory
+## 📄 License
 
-   ## Usage
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-   Users are brought to the main screen, where they can input the ingredients and generate a recipe
+---
 
-   ![screenshot](screenshot.png)
+## 🙋‍♂️ About the Creator
 
-   Deploy Link: http://localhost:3002/ (or whatever number you set to the port, you need to run npm start in your terminal first though)
+**Allen Y. Lockard**  
+Aspiring Software Developer | CS Major (AI) | Full-Stack Enthusiast  
+[LinkedIn](https://www.linkedin.com/in/allen-y-lockard) • [GitHub](https://github.com/Lockaa)
 
-   ## Contributing:
-   Anyone is allowed to add any changes just as long as these steps are followed:
-    Fork the repository.
-    Create a new branch (`git checkout -b new-branch`).
 
-    Make your changes and commit them. (`git commit -m 'New Adjustments'`).
-    Push to your branch (`git push origin new-branch`).
-    Open a pull request.
-
-   ## License
-
-   Standard MIT License
