@@ -61,7 +61,7 @@
     Fork the repository.
     Create a new branch (`git checkout -b new-branch`).
 
-    Make your changes and commit them. (`git commit -m 'Neww Adjustments'`).
+    Make your changes and commit them. (`git commit -m 'New Adjustments'`).
     Push to your branch (`git push origin new-branch`).
     Open a pull request.
 
