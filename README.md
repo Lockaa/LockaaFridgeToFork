@@ -16,8 +16,7 @@ Built with React, Node.js, Express, and MongoDB.
 - 🧾 **Ingredient Tracker** – Easily add, edit, and delete items in your virtual fridge  
 - 🍽️ **Recipe Generator** – Get smart recipe suggestions based on what you already have  
 - 🧠 **AI-Ready Backend** – Designed to integrate with future AI-powered recommendations  
-- 📱 **Responsive Design** – Mobile-friendly user interface using React  
-- 🔐 **User Authentication** – Sign up, log in, and manage your ingredients securely  
+- 📱 **Responsive Design** – Mobile-friendly user interface using React   
 - 🔎 **Dynamic Filtering** – Quickly find recipes by cuisine, dietary restrictions, and cooking time  
 
 ---
